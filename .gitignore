@@ -1,0 +1,19 @@
+# Ignore generated and editor temporary files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.swp
+*.swo
+*.tmp
+*.log
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE/editor workspace files
+.vscode/
+
+# Ignore draw.io files
+*.drawio

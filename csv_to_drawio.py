@@ -1,6 +1,8 @@
 import csv
 import uuid
 import xml.etree.ElementTree as ET
+import argparse
+
 
 # aux to get a file named .csv and make it .drawio
 def get_output_file(csv_file):
@@ -210,4 +212,13 @@ def csv_to_drawio(csv_file):
     tree = ET.ElementTree(root)
     tree.write(output_file, encoding="utf-8", xml_declaration=True)
 
-csv_to_drawio("real_ofc.csv")
+def main():
+    parser = argparse.ArgumentParser(description="Convert CSV to Draw.io diagram")
+    parser.add_argument("csv_file", help="Path to input CSV file")
+
+    args = parser.parse_args()
+
+    csv_to_drawio(args.csv_file)
+
+if __name__ == "__main__":
+    main()
