@@ -192,7 +192,13 @@ def csv_to_drawio(csv_file):
                 rack_height
             )
 
-            for i, row in enumerate(devs):
+            seen = {}
+            for row in devs:
+                ip = row.get("IP")
+                if ip and ip not in seen:
+                    seen[ip] = row
+
+            for i, row in enumerate(seen.values()):
                 create_device(root_cell, rack_id, row, i, devices, cfg)
 
             current_loc_y += rack_height + cfg.GEO_VERTICAL_SPACING
